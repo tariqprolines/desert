@@ -1,0 +1,6 @@
+.Avatarstyle img{
+width: 200px;height: 200px;	margin: 0 auto;
+}
+.Avatarstyle:hover{
+box-shadow: 5px 10px 5px #ccc;	
+}

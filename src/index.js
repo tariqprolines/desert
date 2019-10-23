@@ -1,12 +1,33 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'; 
 import './index.css';
-import App from './App';
+import Web from './components/Web';  
+import About from './components/About'; 
+import Contact from './components/Contact';
+import './components/Web.css';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Routing = ()=>{
+	return(<Router>
+			<ul className="menuStyle">
+			<li className="logo">Saudi Desert</li>
+			<li><Link to="/">Home</Link></li>
+			<li><Link to="/about">About Us</Link></li>
+			<li><Link to="/contact">Contact Us</Link></li>
+			</ul>
+			<div>
+				<Route exact path="/" component={Web} />  
+		        <Route path="/about" component={About} />  
+		        <Route path="/contact" component={Contact} />  
+			</div>
+		</Router>
+		);
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<div><Routing /></div>, document.getElementById('root'));
 serviceWorker.unregister();
